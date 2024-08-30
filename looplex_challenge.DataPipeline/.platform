@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "looplex_challenge"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "12e99049-de70-4bf7-878d-1f9385bd771e"
+  }
+}

@@ -1,0 +1,716 @@
+{
+  "compatibilityLevel": 1604,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.133.7404.1 (Main)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DatabaseQuery\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"WebModelingEdit\"]"
+      }
+    ],
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "annotations": [
+          {
+            "name": "PBI_IncludeFutureArtifacts",
+            "value": "False"
+          }
+        ],
+        "expression": [
+          "let",
+          "    database = Sql.Database(\"VWTXK22YWIMEPPWL34AFMTIXDE-R2NKFVXKZDKEBDNAQLZ2YLHL4A.datawarehouse.fabric.microsoft.com\", \"4d96e27b-e8d1-400e-88a8-1c61403aff4a\")",
+          "in",
+          "    database"
+        ],
+        "kind": "m",
+        "lineageTag": "ddbfee72-f857-444f-83f2-5e69118be739"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "4fccfdc3-2655-6a2e-5118-c24f419c4934",
+        "fromColumn": "Date",
+        "fromTable": "price_fact",
+        "toColumn": "Date",
+        "toTable": "dim_date_hierarchy"
+      },
+      {
+        "name": "dc552850-9c74-d722-3015-1e9aa537907e",
+        "fromColumn": "Duration_id",
+        "fromTable": "price_fact",
+        "toColumn": "Duration_id",
+        "toTable": "dim_duration"
+      },
+      {
+        "name": "d4d7ad82-6fa4-09d5-14c9-6faad60b4943",
+        "fromColumn": "TownCity_id",
+        "fromTable": "price_fact",
+        "toColumn": "TownCity_id",
+        "toTable": "dim_town_city"
+      },
+      {
+        "name": "f2c5174b-19a1-b743-06f5-d516826bd064",
+        "fromColumn": "geography_id",
+        "fromTable": "price_fact",
+        "toColumn": "geography_id",
+        "toTable": "dim_geography"
+      },
+      {
+        "name": "2f644c8c-41c5-0284-32db-b14d724a00ce",
+        "fromColumn": "Property_Type_id",
+        "fromTable": "price_fact",
+        "toColumn": "Property_Type_id",
+        "toTable": "dim_property_type"
+      },
+      {
+        "name": "81a116c8-80d9-56dd-e170-5c7ec7d80ee9",
+        "fromColumn": "Old_New_id",
+        "fromTable": "price_fact",
+        "toColumn": "Old_New_id",
+        "toTable": "dim_old_new"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "dim_date_hierarchy",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "75f17e58-9587-416d-b1c1-e59af43a16b2",
+            "sourceColumn": "Date",
+            "sourceLineageTag": "Date",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1048aab2-e477-4c56-b629-4acea2b810f0",
+            "sourceColumn": "Year",
+            "sourceLineageTag": "Year",
+            "sourceProviderType": "int",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "93597fdf-d066-43ad-b666-80aa9556ef92",
+            "sourceColumn": "Quarter",
+            "sourceLineageTag": "Quarter",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4a829f09-b71c-45b9-a3a5-26f56fbb9b88",
+            "sourceColumn": "Month",
+            "sourceLineageTag": "Month",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month_Number",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2a92580d-1748-4d89-8fdd-fd92a7faf8d5",
+            "sourceColumn": "Month_Number",
+            "sourceLineageTag": "Month_Number",
+            "sourceProviderType": "int",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "62435c97-97f2-4c61-9ae6-6b868086d3f2",
+            "sourceColumn": "Day",
+            "sourceLineageTag": "Day",
+            "sourceProviderType": "int",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day_of_Week",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bf7a9b05-e2c7-46a1-b794-c16d52a5850f",
+            "sourceColumn": "Day_of_Week",
+            "sourceLineageTag": "Day_of_Week",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "260bca47-c590-4bb9-b644-e6b1eeec38a1",
+        "partitions": [
+          {
+            "name": "dim_date_hierarchy",
+            "mode": "directLake",
+            "source": {
+              "entityName": "dim_date_hierarchy",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[dim_date_hierarchy]"
+      },
+      {
+        "name": "dim_duration",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Description_Duration",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9882c622-e665-4683-81a1-5c9d52399d3d",
+            "sourceColumn": "Description_Duration",
+            "sourceLineageTag": "Description_Duration",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Duration_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4d76e809-5fd2-465d-9cb1-177a7ebcda43",
+            "sourceColumn": "Duration_id",
+            "sourceLineageTag": "Duration_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "d967e12d-4e98-44c5-94aa-07c2bcab1e42",
+        "partitions": [
+          {
+            "name": "dim_duration",
+            "mode": "directLake",
+            "source": {
+              "entityName": "dim_duration",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[dim_duration]"
+      },
+      {
+        "name": "dim_old_new",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Description_Old_New",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ae1104da-ee21-4e49-b5da-9953a31d8709",
+            "sourceColumn": "Description_Old_New",
+            "sourceLineageTag": "Description_Old_New",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Old_New_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f830cdbe-7955-4d32-83df-9dbcf1cd61b6",
+            "sourceColumn": "Old_New_id",
+            "sourceLineageTag": "Old_New_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "3474ff7b-f7ea-40e4-8058-5d36405ea0d4",
+        "partitions": [
+          {
+            "name": "dim_old_new",
+            "mode": "directLake",
+            "source": {
+              "entityName": "dim_old_new",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[dim_old_new]"
+      },
+      {
+        "name": "dim_property_type",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Property_Type_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "dfbe5673-c05c-44eb-a758-b06cecae3e17",
+            "sourceColumn": "Property_Type_id",
+            "sourceLineageTag": "Property_Type_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Description_Property_Type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "498bc160-6579-4dc1-b79c-7fe0988906b2",
+            "sourceColumn": "Description_Property_Type",
+            "sourceLineageTag": "Description_Property_Type",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "cab6be70-9e35-49b3-9921-0f0658132232",
+        "partitions": [
+          {
+            "name": "dim_property_type",
+            "mode": "directLake",
+            "source": {
+              "entityName": "dim_property_type",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[dim_property_type]"
+      },
+      {
+        "name": "dim_town_city",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Town_City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0fc6b113-fff7-42d7-9826-67fcd55964d5",
+            "sourceColumn": "Town_City",
+            "sourceLineageTag": "Town_City",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TownCity_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ad883b85-8d68-462d-bab9-a0f62980ea88",
+            "sourceColumn": "TownCity_id",
+            "sourceLineageTag": "TownCity_id",
+            "sourceProviderType": "bigint",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "569855b0-0dc7-43e9-b18b-bce973612f79",
+        "partitions": [
+          {
+            "name": "dim_town_city",
+            "mode": "directLake",
+            "source": {
+              "entityName": "dim_town_city",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[dim_town_city]"
+      },
+      {
+        "name": "dim_geography",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "County",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "27ef545b-147a-418d-b17a-ef3f279f4996",
+            "sourceColumn": "County",
+            "sourceLineageTag": "County",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "District",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4cea3155-bc62-425a-acb5-e47a567274ea",
+            "sourceColumn": "District",
+            "sourceLineageTag": "District",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Town_City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1f401977-fdcd-46e1-9137-069d1f2910e8",
+            "sourceColumn": "Town_City",
+            "sourceLineageTag": "Town_City",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "geography_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4f4ffc16-969b-40ca-9a6e-e06f5d08ece0",
+            "sourceColumn": "geography_id",
+            "sourceLineageTag": "geography_id",
+            "sourceProviderType": "bigint",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "4c09062c-4122-4695-aca6-d9b59f75b5d1",
+        "partitions": [
+          {
+            "name": "dim_geography",
+            "mode": "directLake",
+            "source": {
+              "entityName": "dim_geography",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[dim_geography]"
+      },
+      {
+        "name": "price_fact",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "geography_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "102a7d04-51dd-4d22-a328-379541ca96fc",
+            "sourceColumn": "geography_id",
+            "sourceLineageTag": "geography_id",
+            "sourceProviderType": "bigint",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TownCity_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "139b4c77-2305-426a-a084-6da0dd97b052",
+            "sourceColumn": "TownCity_id",
+            "sourceLineageTag": "TownCity_id",
+            "sourceProviderType": "bigint",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Property_Type_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "03c86552-e336-48ba-8f81-4894df41a91f",
+            "sourceColumn": "Property_Type_id",
+            "sourceLineageTag": "Property_Type_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Old_New_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5a953c26-9abe-4945-83f8-15a7090de541",
+            "sourceColumn": "Old_New_id",
+            "sourceLineageTag": "Old_New_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Duration_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "26a7e899-0ebf-4ce5-ba86-4a8dd9cba48b",
+            "sourceColumn": "Duration_id",
+            "sourceLineageTag": "Duration_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "2e9ce0d7-e5a2-4d62-adec-db414fd2a35e",
+            "sourceColumn": "Date",
+            "sourceLineageTag": "Date",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "transaction_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0afd5238-fc1c-4220-87f3-5c903f6e05f2",
+            "sourceColumn": "transaction_id",
+            "sourceLineageTag": "transaction_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "20df2ed2-780e-4f77-bba9-e4ff6b42f213",
+            "sourceColumn": "Price",
+            "sourceLineageTag": "Price",
+            "sourceProviderType": "int",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "15ebae83-f609-4ada-bfa6-4ce935784f99",
+        "partitions": [
+          {
+            "name": "price_fact",
+            "mode": "directLake",
+            "source": {
+              "entityName": "price_fact",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[price_fact]"
+      }
+    ]
+  }
+}

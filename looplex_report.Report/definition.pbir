@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../for_powerbi_analysis_price.SemanticModel"
+    },
+    "byConnection": null
+  }
+}
