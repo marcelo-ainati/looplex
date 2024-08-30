@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Report",
-    "displayName": "Looplex - Technical Assessment - Report"
+    "displayName": "House Price Forecast"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "6ab3d166-2d51-45db-aed5-6df560121aa5"
+    "logicalId": "a262a29d-668e-4330-92bc-8b2b93481a55"
   }
 }

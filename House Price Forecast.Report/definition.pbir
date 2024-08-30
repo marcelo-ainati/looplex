@@ -2,7 +2,7 @@
   "version": "4.0",
   "datasetReference": {
     "byPath": {
-      "path": "../house_price_analysis.SemanticModel"
+      "path": "../gold_layer_data_for_powerbi.SemanticModel"
     },
     "byConnection": null
   }

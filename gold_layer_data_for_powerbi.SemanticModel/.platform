@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "SemanticModel",
-    "displayName": "for_powerbi_analysis_price"
+    "displayName": "gold_layer_data_for_powerbi"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "58dde5dd-646e-4f4c-8011-5f422dd9f764"
+    "logicalId": "647da19d-6dca-4ba2-b3e8-29f7fae73320"
   }
 }
