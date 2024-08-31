@@ -2,19 +2,7 @@
   "properties": {
     "activities": [
       {
-        "name": "download_original_file",
-        "description": "Downloads .csv in binary and saves it into Files/ folder do Bronze Layer",
         "type": "Copy",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
-        "dependsOn": [],
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureOutput": false,
-          "secureInput": false
-        },
         "typeProperties": {
           "source": {
             "type": "BinarySource",
@@ -26,7 +14,6 @@
               "type": "BinaryReadSettings"
             },
             "datasetSettings": {
-              "annotations": [],
               "type": "Binary",
               "typeProperties": {
                 "location": {
@@ -36,7 +23,8 @@
               },
               "externalReferences": {
                 "connection": "55f619ab-a8f3-4db4-8417-5a6d94b745c4"
-              }
+              },
+              "annotations": []
             }
           },
           "sink": {
@@ -45,36 +33,57 @@
               "type": "LakehouseWriteSettings"
             },
             "datasetSettings": {
-              "annotations": [],
-              "linkedService": {
-                "name": "bronze_layer_1",
-                "properties": {
-                  "annotations": [],
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "workspaceId": "d6a29a8e-c8ea-40d4-8da0-82f3ac2cebe0",
-                    "artifactId": "3e01b357-4077-45a1-845f-df3fc0582b5b",
-                    "rootFolder": "Files"
-                  }
-                }
-              },
               "type": "Binary",
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
                   "fileName": "pp_complete_1995_2024"
                 }
-              }
+              },
+              "linkedService": {
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3e01b357-4077-45a1-845f-df3fc0582b5b",
+                    "workspaceId": "d6a29a8e-c8ea-40d4-8da0-82f3ac2cebe0",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                },
+                "name": "bronze_layer_1"
+              },
+              "annotations": []
             }
           },
           "enableStaging": false
-        }
-      },
-      {
-        "name": "Limpeza Inicial - Bronze Layer",
-        "type": "TridentNotebook",
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "download_original_file",
+        "description": "Downloads .csv in binary and saves it into Files/ folder do Bronze Layer",
         "state": "Inactive",
         "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "7b0571fe-c680-4bb8-a591-ebbd1bd084e4",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Limpeza Inicial - Bronze Layer",
         "dependsOn": [
           {
             "activity": "download_original_file",
@@ -82,37 +91,31 @@
               "Succeeded"
             ]
           }
-        ],
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureOutput": false,
-          "secureInput": false
-        },
-        "typeProperties": {
-          "notebookId": "ad6941a2-efcf-4039-b50c-7b223962d7e8",
-          "workspaceId": "d6a29a8e-c8ea-40d4-8da0-82f3ac2cebe0"
-        }
+        ]
       },
       {
-        "name": "Limpeza Profunda - Silver Layer",
-        "description": "Executa vários passos de limpeza dos dados preparando-os para carregamento no Gold Layer",
         "type": "TridentNotebook",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
-        "dependsOn": [],
+        "typeProperties": {
+          "notebookId": "03f586c2-16c7-4db7-9695-430c7b12411a",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureOutput": false,
-          "secureInput": false
+          "secureInput": false,
+          "secureOutput": false
         },
-        "typeProperties": {
-          "notebookId": "cea6a829-941f-4b2c-b3bc-50dee191d9ef",
-          "workspaceId": "d6a29a8e-c8ea-40d4-8da0-82f3ac2cebe0"
-        }
+        "name": "Limpeza Profunda - Silver Layer",
+        "description": "Executa vários passos de limpeza dos dados preparando-os para carregamento no Gold Layer",
+        "dependsOn": [
+          {
+            "activity": "Limpeza Inicial - Bronze Layer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
       }
     ]
   }
