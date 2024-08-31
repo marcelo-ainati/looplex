@@ -27,13 +27,17 @@ from pyspark.sql.functions import monotonically_increasing_id
 from pyspark.sql.functions import when
 from pyspark.sql.functions import col, year, quarter, month, dayofmonth, dayofweek, date_format, expr, avg
 
-spark = SparkSession.builder \
-    .appName("Parquet File Loader") \
-    .getOrCreate()
+# METADATA ********************
 
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
-file_list = ["Tables/dim_geography", "Tables/dim_duration", "Tables/dim_old_new",
-"Tables/dim_property_type", "Tables/dim_town_city", "Tables/price_fact", "Tables/price_fact_agg"]
+# CELL ********************
+
+dim_geography = spark.read.format('delta').load('Tables/dim_geography')
+dim_geography.show()
 
 # METADATA ********************
 
@@ -44,19 +48,7 @@ file_list = ["Tables/dim_geography", "Tables/dim_duration", "Tables/dim_old_new"
 
 # CELL ********************
 
-df_dim_geography = spark.read.parquet(file_list[0])
-df_dim_geography.show()
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df_dim_geography.filter(df_dim_geography.Town_City=='LONDON').show()
+dim_geography.filter(dim_geography.Town_City=='LONDON').show()
 
 # METADATA ********************
 

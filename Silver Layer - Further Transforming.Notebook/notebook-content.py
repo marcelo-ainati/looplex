@@ -50,9 +50,7 @@ df_table = spark.read.format("delta").load("Tables/house_price_history")
 
 # CELL ********************
 
-df_table.show(5) 
 df_table.printSchema()
-df_table.count()
 
 # METADATA ********************
 
